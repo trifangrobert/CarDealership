@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a64af676-b275-49dd-a975-bfbec1f8248e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarDealership.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="a64af676-b275-49dd-a975-bfbec1f8248e" name="Changes" comment="crud for clients in mysql">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarDealership.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CarDealership.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dealership/CarDealership.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dealership/CarDealership.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dealership/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dealership/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/SUV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/SUV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/SuperCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/SuperCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Van.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Van.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +49,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/FMI/Anul 2/Semestrul 2/PAO/CarDealership/lib/mysql-connector-j-8.0.32.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -58,5 +66,20 @@
       <updated>1684396911321</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="crud for clients in mysql" />
+    <option name="LAST_COMMIT_MESSAGE" value="crud for clients in mysql" />
   </component>
 </project>

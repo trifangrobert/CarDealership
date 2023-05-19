@@ -10,15 +10,13 @@ public class CarDealership {
     private String name;
     private String city;
     private String website;
-
-    private List<Car> cars = new ArrayList<Car>();
-    private List<Transaction> transactions = new ArrayList<Transaction>();
-
-    public CarDealership(int dealershipId, String name, String city, String website) {
+    private List<Car> cars = new ArrayList<>();
+    public CarDealership(int dealershipId, String name, String city, String website, List<Car> cars) {
         this.dealershipId = dealershipId;
         this.name = name;
         this.city = city;
         this.website = website;
+        this.cars = cars;
     }
 
     public int getDealershipId() {
@@ -47,5 +45,24 @@ public class CarDealership {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    @Override
+    public String toString() {
+        return "CarDealership{" +
+                "dealershipId=" + dealershipId +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", website='" + website + '\'' +
+                ", cars=" + cars +
+                '}';
     }
 }
