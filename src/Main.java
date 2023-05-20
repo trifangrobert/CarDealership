@@ -30,7 +30,6 @@ public class Main {
 
         System.out.println("Welcome to the Car Dealership!");
         System.out.println("Type 'help' to see the list of commands.");
-        System.out.println(new Date());
 
         boolean running = true;
         while (running) {
