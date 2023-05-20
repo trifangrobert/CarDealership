@@ -56,10 +56,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Connection connection = Main.getConnection();
 
-        ClientDatabase clientDatabase = new ClientDatabase(connection);
-        DealershipDatabase dealershipDatabase = new DealershipDatabase(connection);
-
-        Service service = new Service(clientDatabase, dealershipDatabase);
+        Service service = new Service(connection);
 
         System.out.println("Welcome to the Car Dealership!");
         System.out.println("Type 'help' to see the list of commands.");
