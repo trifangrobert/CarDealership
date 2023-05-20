@@ -1,24 +1,39 @@
 package Dealership;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
-
 public class Transaction {
     private int transactionId;
     private int carId;
     private int clientId;
     private int dealershipId;
-    private Date date;
-    private double price;
+    private Date transactionDate;
 
-    public Transaction(int transactionId, int carId, int clientId, int dealershipId, Date date, double price) {
+    public Transaction(int transactionId, int carId, int clientId, int dealershipId, Date transactionDate) {
         this.transactionId = transactionId;
         this.carId = carId;
         this.clientId = clientId;
         this.dealershipId = dealershipId;
-        this.date = date;
-        this.price = price;
+        this.transactionDate = transactionDate;
     }
 
+    public Transaction(int transactionId, int carId, int clientId, int dealershipId) {
+        this.transactionId = transactionId;
+        this.carId = carId;
+        this.clientId = clientId;
+        this.dealershipId = dealershipId;
+        Date now = new Date();
+        this.transactionDate = now;
+    }
+
+    public Transaction(int transactionId, ResultSet rs)throws SQLException {
+        this.transactionId = transactionId;
+        this.carId = rs.getInt("car_id");
+        this.clientId = rs.getInt("client_id");
+        this.dealershipId = rs.getInt("dealership_id");
+        this.transactionDate = rs.getDate("transaction_date");
+    }
     public int getTransactionId() {
         return transactionId;
     }
@@ -51,20 +66,12 @@ public class Transaction {
         this.dealershipId = dealershipId;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
     @Override
@@ -74,8 +81,7 @@ public class Transaction {
                 ", carId=" + carId +
                 ", clientId=" + clientId +
                 ", dealershipId=" + dealershipId +
-                ", date=" + date +
-                ", price=" + price +
+                ", transactionDate=" + transactionDate.toString() +
                 '}';
     }
 }

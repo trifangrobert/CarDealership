@@ -116,6 +116,6 @@ public class Client {
         this.cars = cars;
     }
     public void addCar(Car car) {
-        cars.add(car);
+        this.cars.add(car);
     }
 }

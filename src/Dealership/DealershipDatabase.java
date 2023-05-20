@@ -25,7 +25,6 @@ public class DealershipDatabase {
             ResultSet rs = statement.executeQuery("SELECT * FROM dealerships");
             while (rs.next()) {
                 Dealership curr = instance.dealershipFactory.createDealership(rs.getInt("dealership_id"), rs);
-                System.out.println(curr);
                 dealerships.add(curr);
             }
             statement.close();
