@@ -22,37 +22,10 @@ public class Main {
         }
     }
     //
-    static List<String> commands = Arrays.asList("create_client", "update_client", "delete_client", "print_clients", "create_dealership", "update_dealership", "delete_dealership", "print_dealerships", "create_car", "update_car", "delete_car", "print_cars", "print_transactions", "delete_transaction", "cars_from_dealership", "cars_from_client", "client_buys_car_from_dealership", "client_sells_car_to_dealership", "quit");
-    static List<String> commandsDescription = Arrays.asList("Create a new client", "Update a client", "Delete a client", "Print all clients", "Create a new dealership", "Update a dealership", "Delete a dealership", "Print all dealerships", "Create a new car", "Update a car", "Delete a car", "Print all cars", "Print all transactions", "Delete a transaction", "Print all cars from a dealership", "Print all cars from a client", "A client buys a car from a dealership", "A client sells a car to a dealership", "Quit");
+    static List<String> commands = Arrays.asList("create_client", "update_client", "delete_client", "print_client", "print_clients", "create_dealership", "update_dealership", "delete_dealership", "print_dealership", "print_dealerships", "create_car", "update_car", "delete_car", "print_car", "print_cars", "print_transaction", "print_transactions", "delete_transaction", "cars_from_dealership", "cars_from_client", "client_buys_car_from_dealership", "client_sells_car_to_dealership", "refresh", "quit");
+    static List<String> commandsDescription = Arrays.asList("Create a client", "Update a client", "Delete a client", "Print a client", "Print all clients", "Create a dealership", "Update a dealership", "Delete a dealership", "Print a dealership", "Print all dealerships", "Create a car", "Update a car", "Delete a car", "Print a car", "Print all cars", "Print a transaction", "Print all transactions", "Delete a transaction", "Print all cars from a dealership", "Print all cars from a client", "A client buys a car from a dealership", "A client sells a car to a client", "Refresh the database", "Quit the program");
 
     public static void main(String[] args) throws ParseException, SQLException {
-//        CarService carService = new CarService();
-//        carService.addClient(new Client("Robert", "Trifan", new Address("Splaiul Independentei", "Bucuresti", "Bucuresti", 123), new Date(), 1000000, new ArrayList<>()));
-//        carService.addClient(new Client("Anna", "Pecheanu", new Address("Splaiul Independentei", "Bucuresti", "Bucuresti", 123), new Date(), 1000000, new ArrayList<>()));
-//        carService.addClient(new Client("Andrei", "Popescu", new Address("Strada Strazilor", "Brasov", "Brasov", 456), new Date(), 1000000, new ArrayList<>()));
-//        carService.addClient(new Client("Mihai", "Ilie", new Address("Strada Strazilor", "Craiova", "Dolj", 789), new Date(), 1000000, new ArrayList<>()));
-//
-//        carService.addDealership(new CarDealership("Marius's Car Dealership", "Brasov", "www.andreicar.com"));
-//        carService.addDealership(new CarDealership("Mihai's Car Dealership", "Craiova", "www.mihaicar.com"));
-//
-//        Car lamborghini_urus = new SUV("Lamborghini", 2020, "black", "VS 03 FUN", 300000, 6, 5);
-//        Car ferrari_roma = new SuperCar("Ferrari", 2020, "red", "VS 02 FUN", 200000, 4, 300);
-//        Car mercedes_van = new Van("Mercedes", 2020, "white", "VS 01 FUN", 100000, 4, 10);
-//
-//        carService.addCarToDealership(1, lamborghini_urus);
-//        carService.addCarToDealership(1, ferrari_roma);
-//        carService.addCarToDealership(2, mercedes_van);
-//
-//        System.out.println(carService.getClients());
-//        System.out.println(carService.getDealerships());
-//        System.out.println(carService.getTransactions());
-//
-//        carService.clientBuysCar(1, "Lamborghini", 1);
-//
-//        System.out.println(carService.getClients());
-//        System.out.println(carService.getDealerships());
-//        System.out.println(carService.getTransactions());
-
         Scanner scanner = new Scanner(System.in);
         Connection connection = Main.getConnection();
         Service service = new Service(connection);
@@ -98,19 +71,5 @@ public class Main {
                 default -> System.out.println("Invalid command!");
             }
         }
-
-//        service.createClient(scanner);
-
-//        int updateClientId = scanner.nextInt();
-//        scanner.nextLine();
-//        service.updateClient(updateClientId, scanner);
-
-//        int deleteClientId = scanner.nextInt();
-//        scanner.nextLine();
-//        service.deleteClient(deleteClientId);
-
-
-//        System.out.println(service.getClients());
-
     }
 }
