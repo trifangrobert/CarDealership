@@ -1,5 +1,3 @@
-import Client.*;
-import Dealership.*;
 import Service.Service;
 
 import java.sql.Connection;
