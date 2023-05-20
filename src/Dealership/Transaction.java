@@ -6,15 +6,15 @@ public class Transaction {
     private int transactionId;
     private int carId;
     private int clientId;
-    private int dealerId;
+    private int dealershipId;
     private Date date;
     private double price;
 
-    public Transaction(int transactionId, int carId, int clientId, int dealerId, Date date, double price) {
+    public Transaction(int transactionId, int carId, int clientId, int dealershipId, Date date, double price) {
         this.transactionId = transactionId;
         this.carId = carId;
         this.clientId = clientId;
-        this.dealerId = dealerId;
+        this.dealershipId = dealershipId;
         this.date = date;
         this.price = price;
     }
@@ -43,12 +43,12 @@ public class Transaction {
         this.clientId = clientId;
     }
 
-    public int getDealerId() {
-        return dealerId;
+    public int getDealershipId() {
+        return dealershipId;
     }
 
-    public void setDealerId(int dealerId) {
-        this.dealerId = dealerId;
+    public void setDealershipId(int dealershipId) {
+        this.dealershipId = dealershipId;
     }
 
     public Date getDate() {
@@ -73,7 +73,7 @@ public class Transaction {
                 "transactionId=" + transactionId +
                 ", carId=" + carId +
                 ", clientId=" + clientId +
-                ", dealerId=" + dealerId +
+                ", dealershipId=" + dealershipId +
                 ", date=" + date +
                 ", price=" + price +
                 '}';

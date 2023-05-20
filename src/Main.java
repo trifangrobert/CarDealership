@@ -1,4 +1,5 @@
 import Client.*;
+import Dealership.*;
 import Service.Service;
 
 import java.sql.Connection;
@@ -21,16 +22,15 @@ public class Main {
         }
     }
 //
-    static List<String> commands = Arrays.asList("create_client", "update_client", "delete_client", "print_clients", "quit");
-    static List<String> commandsDescription = Arrays.asList("Create a new client", "Update a client", "Delete a client", "Print all clients", "End the program");
+    static List<String> commands = Arrays.asList("create_client", "update_client", "delete_client", "print_clients", "create_dealership", "update_dealership", "delete_dealership", "print_dealerships", "quit");
+    static List<String> commandsDescription = Arrays.asList("Create a new client", "Update a client", "Delete a client", "Print all clients", "Create a new dealership", "Update a dealership", "Delete a dealership", "Print all dealerships", "Quit the program");
 
     public static void main(String[] args) throws ParseException, SQLException {
-
 //        CarService carService = new CarService();
-////        carService.addClient(new Client("Robert", "Trifan", new Address("Splaiul Independentei", "Bucuresti", "Bucuresti", 123), new Date(), 1000000, new ArrayList<>()));
-////        carService.addClient(new Client("Anna", "Pecheanu", new Address("Splaiul Independentei", "Bucuresti", "Bucuresti", 123), new Date(), 1000000, new ArrayList<>()));
-////        carService.addClient(new Client("Andrei", "Popescu", new Address("Strada Strazilor", "Brasov", "Brasov", 456), new Date(), 1000000, new ArrayList<>()));
-////        carService.addClient(new Client("Mihai", "Ilie", new Address("Strada Strazilor", "Craiova", "Dolj", 789), new Date(), 1000000, new ArrayList<>()));
+//        carService.addClient(new Client("Robert", "Trifan", new Address("Splaiul Independentei", "Bucuresti", "Bucuresti", 123), new Date(), 1000000, new ArrayList<>()));
+//        carService.addClient(new Client("Anna", "Pecheanu", new Address("Splaiul Independentei", "Bucuresti", "Bucuresti", 123), new Date(), 1000000, new ArrayList<>()));
+//        carService.addClient(new Client("Andrei", "Popescu", new Address("Strada Strazilor", "Brasov", "Brasov", 456), new Date(), 1000000, new ArrayList<>()));
+//        carService.addClient(new Client("Mihai", "Ilie", new Address("Strada Strazilor", "Craiova", "Dolj", 789), new Date(), 1000000, new ArrayList<>()));
 //
 //        carService.addDealership(new CarDealership("Marius's Car Dealership", "Brasov", "www.andreicar.com"));
 //        carService.addDealership(new CarDealership("Mihai's Car Dealership", "Craiova", "www.mihaicar.com"));
@@ -57,8 +57,9 @@ public class Main {
         Connection connection = Main.getConnection();
 
         ClientDatabase clientDatabase = new ClientDatabase(connection);
+        DealershipDatabase dealershipDatabase = new DealershipDatabase(connection);
 
-        Service service = new Service(clientDatabase);
+        Service service = new Service(clientDatabase, dealershipDatabase);
 
         System.out.println("Welcome to the Car Dealership!");
         System.out.println("Type 'help' to see the list of commands.");
@@ -77,10 +78,13 @@ public class Main {
                 case "update_client" -> service.updateClient(scanner);
                 case "delete_client" -> service.deleteClient(scanner);
                 case "print_clients" -> service.printClients();
+                case "create_dealership" -> service.createDealership(scanner);
+                case "update_dealership" -> service.updateDealership(scanner);
+                case "delete_dealership" -> service.deleteDealership(scanner);
+                case "print_dealerships" -> service.printDealerships();
                 case "quit" -> running = false;
                 default -> System.out.println("Invalid command!");
             }
-
         }
 
 //        service.createClient(scanner);
