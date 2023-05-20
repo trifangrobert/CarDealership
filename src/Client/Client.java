@@ -122,4 +122,8 @@ public class Client implements Comparable<Client> {
     public int compareTo(Client o) {
         return (int) (o.getMoney() - this.getMoney());
     }
+
+    public String toCSV() {
+        return this.clientId + "," + this.firstName + "," + this.lastName + "," + this.birthDate + "," + this.money + "," + this.address.toCSV();
+    }
 }

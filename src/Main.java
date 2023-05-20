@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.*;
 
+import Service.AuditSingleton;
+
 public class Main {
     public static Connection getConnection() {
         try {
@@ -26,6 +28,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Connection connection = Main.getConnection();
         Service service = new Service(connection);
+        AuditSingleton.getInstance();
 
         System.out.println("Welcome to the Car Dealership!");
         System.out.println("Type 'help' to see the list of commands.");
@@ -40,33 +43,110 @@ public class Main {
                         System.out.println(commands.get(i) + " - " + commandsDescription.get(i));
                     }
                 }
-                case "refresh_database" -> service.refresh();
-                case "create_client" -> service.createClient(scanner);
-                case "update_client" -> service.updateClient(scanner);
-                case "delete_client" -> service.deleteClient(scanner);
-                case "print_client" -> service.printClient(scanner);
-                case "print_clients" -> service.printClients();
-                case "create_dealership" -> service.createDealership(scanner);
-                case "update_dealership" -> service.updateDealership(scanner);
-                case "delete_dealership" -> service.deleteDealership(scanner);
-                case "print_dealership" -> service.printDealership(scanner);
-                case "print_dealerships" -> service.printDealerships();
-                case "create_car" -> service.createCar(scanner);
-                case "update_car" -> service.updateCar(scanner);
-                case "delete_car" -> service.deleteCar(scanner);
-                case "print_car" -> service.printCar(scanner);
-                case "print_cars" -> service.printCars();
-                case "delete_transaction" -> service.deleteTransaction(scanner);
-                case "print_transactions" -> service.printTransactions();
-                case "print_transaction" -> service.printTransaction(scanner);
-                case "cars_from_dealership" -> service.printCarsFromDealership(scanner);
-                case "cars_from_client" -> service.printCarsFromClient(scanner);
-                case "client_buys_car_from_dealership" -> service.clientBuysCarFromDealership(scanner);
-                case "client_sells_car_to_client" -> service.clientSellsCarToClient(scanner);
-                case "print_richest_clients" -> service.printRichestClients();
-                case "quit" -> running = false;
+                case "refresh_database" -> {
+                    service.refresh();
+                    AuditSingleton.getInstance().add("refresh_database");
+                }
+                case "create_client" -> {
+                    service.createClient(scanner);
+                    AuditSingleton.getInstance().add("create_client");
+                }
+                case "update_client" -> {
+                    service.updateClient(scanner);
+                    AuditSingleton.getInstance().add("update_client");
+                }
+                case "delete_client" -> {
+                    service.deleteClient(scanner);
+                    AuditSingleton.getInstance().add("delete_client");
+                }
+                case "print_client" -> {
+                    service.printClient(scanner);
+                    AuditSingleton.getInstance().add("print_client");
+                }
+                case "print_clients" -> {
+                    service.printClients();
+                    AuditSingleton.getInstance().add("print_clients");
+                }
+                case "create_dealership" -> {
+                    service.createDealership(scanner);
+                    AuditSingleton.getInstance().add("create_dealership");
+                }
+                case "update_dealership" -> {
+                    service.updateDealership(scanner);
+                    AuditSingleton.getInstance().add("update_dealership");
+                }
+                case "delete_dealership" -> {
+                    service.deleteDealership(scanner);
+                    AuditSingleton.getInstance().add("delete_dealership");
+                }
+                case "print_dealership" -> {
+                    service.printDealership(scanner);
+                    AuditSingleton.getInstance().add("print_dealership");
+                }
+                case "print_dealerships" -> {
+                    service.printDealerships();
+                    AuditSingleton.getInstance().add("print_dealerships");
+                }
+                case "create_car" -> {
+                    service.createCar(scanner);
+                    AuditSingleton.getInstance().add("create_car");
+                }
+                case "update_car" -> {
+                    service.updateCar(scanner);
+                    AuditSingleton.getInstance().add("update_car");
+                }
+                case "delete_car" -> {
+                    service.deleteCar(scanner);
+                    AuditSingleton.getInstance().add("delete_car");
+                }
+                case "print_car" -> {
+                    service.printCar(scanner);
+                    AuditSingleton.getInstance().add("print_car");
+                }
+                case "print_cars" -> {
+                    service.printCars();
+                    AuditSingleton.getInstance().add("print_cars");
+                }
+                case "delete_transaction" -> {
+                    service.deleteTransaction(scanner);
+                    AuditSingleton.getInstance().add("delete_transaction");
+                }
+                case "print_transactions" ->{
+                    service.printTransactions();
+                    AuditSingleton.getInstance().add("print_transactions");
+                }
+                case "print_transaction" -> {
+                    service.printTransaction(scanner);
+                    AuditSingleton.getInstance().add("print_transaction");
+                }
+                case "cars_from_dealership" -> {
+                    service.printCarsFromDealership(scanner);
+                    AuditSingleton.getInstance().add("cars_from_dealership");
+                }
+                case "cars_from_client" -> {
+                    service.printCarsFromClient(scanner);
+                    AuditSingleton.getInstance().add("cars_from_client");
+                }
+                case "client_buys_car_from_dealership" -> {
+                    service.clientBuysCarFromDealership(scanner);
+                    AuditSingleton.getInstance().add("client_buys_car_from_dealership");
+                }
+                case "client_sells_car_to_client" -> {
+                    service.clientSellsCarToClient(scanner);
+                    AuditSingleton.getInstance().add("client_sells_car_to_client");
+                }
+                case "print_richest_clients" -> {
+                    service.printRichestClients();
+                    AuditSingleton.getInstance().add("print_richest_clients");
+                }
+                case "quit" -> {
+                    running = false;
+                    AuditSingleton.getInstance().add("quit");
+                }
                 default -> System.out.println("Invalid command!");
             }
         }
+        connection.close();
+        AuditSingleton.getInstance().dumpToCSV();
     }
 }
