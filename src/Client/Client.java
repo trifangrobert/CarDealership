@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Client {
+public class Client implements Comparable<Client> {
     private final int clientId;
     private String firstName;
     private String lastName;
@@ -117,5 +117,9 @@ public class Client {
     }
     public void addCar(Car car) {
         this.cars.add(car);
+    }
+    @Override
+    public int compareTo(Client o) {
+        return (int) (o.getMoney() - this.getMoney());
     }
 }

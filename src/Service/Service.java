@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class Service {
@@ -16,6 +17,7 @@ public class Service {
     private List<Dealership> dealerships = new ArrayList<>();
     private List<Car> cars = new ArrayList<>();
     private List<Transaction> transactions = new ArrayList<>();
+    private TreeSet<Client> richestClients = new TreeSet<>();
 
     private final ClientFactory clientFactory = new ClientFactory();
     private final DealershipFactory dealershipFactory = new DealershipFactory();
@@ -44,6 +46,7 @@ public class Service {
         this.cars = CarDatabase.read();
         this.transactions = TransactionDatabase.read();
 
+        this.richestClients.addAll(clients.stream().toList());
         linkCars();
     }
     public void linkCars() {
@@ -65,10 +68,14 @@ public class Service {
         }
     }
     public void refresh() {
+
         this.clients = ClientDatabase.read();
         this.dealerships = DealershipDatabase.read();
         this.cars = CarDatabase.read();
         this.transactions = TransactionDatabase.read();
+
+        this.richestClients.clear();
+        this.richestClients.addAll(clients.stream().toList());
 
         linkCars();
 
@@ -290,6 +297,10 @@ public class Service {
         CarDatabase.update(car);
 
         this.refresh();
+    }
+
+    public void printRichestClients() {
+        System.out.println(this.richestClients);
     }
 
 }

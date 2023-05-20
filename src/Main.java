@@ -19,9 +19,8 @@ public class Main {
             return null;
         }
     }
-    //
-    static List<String> commands = Arrays.asList("create_client", "update_client", "delete_client", "print_client", "print_clients", "create_dealership", "update_dealership", "delete_dealership", "print_dealership", "print_dealerships", "create_car", "update_car", "delete_car", "print_car", "print_cars", "print_transaction", "print_transactions", "delete_transaction", "cars_from_dealership", "cars_from_client", "client_buys_car_from_dealership", "client_sells_car_to_dealership", "refresh", "quit");
-    static List<String> commandsDescription = Arrays.asList("Create a client", "Update a client", "Delete a client", "Print a client", "Print all clients", "Create a dealership", "Update a dealership", "Delete a dealership", "Print a dealership", "Print all dealerships", "Create a car", "Update a car", "Delete a car", "Print a car", "Print all cars", "Print a transaction", "Print all transactions", "Delete a transaction", "Print all cars from a dealership", "Print all cars from a client", "A client buys a car from a dealership", "A client sells a car to a client", "Refresh the database", "Quit the program");
+    static List<String> commands = Arrays.asList("create_client", "update_client", "delete_client", "print_client", "print_clients", "create_dealership", "update_dealership", "delete_dealership", "print_dealership", "print_dealerships", "create_car", "update_car", "delete_car", "print_car", "print_cars", "print_transaction", "print_transactions", "delete_transaction", "cars_from_dealership", "cars_from_client", "client_buys_car_from_dealership", "client_sells_car_to_dealership", "refresh", "print_richest_clients", "quit");
+    static List<String> commandsDescription = Arrays.asList("Create a client", "Update a client", "Delete a client", "Print a client", "Print all clients", "Create a dealership", "Update a dealership", "Delete a dealership", "Print a dealership", "Print all dealerships", "Create a car", "Update a car", "Delete a car", "Print a car", "Print all cars", "Print a transaction", "Print all transactions", "Delete a transaction", "Print all cars from a dealership", "Print all cars from a client", "A client buys a car from a dealership", "A client sells a car to a client", "Refresh the database", "Print the richest clients", "Quit the program");
 
     public static void main(String[] args) throws ParseException, SQLException {
         Scanner scanner = new Scanner(System.in);
@@ -64,6 +63,7 @@ public class Main {
                 case "cars_from_client" -> service.printCarsFromClient(scanner);
                 case "client_buys_car_from_dealership" -> service.clientBuysCarFromDealership(scanner);
                 case "client_sells_car_to_client" -> service.clientSellsCarToClient(scanner);
+                case "print_richest_clients" -> service.printRichestClients();
                 case "quit" -> running = false;
                 default -> System.out.println("Invalid command!");
             }
